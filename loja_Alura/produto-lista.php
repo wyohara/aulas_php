@@ -10,8 +10,7 @@ if( array_key_exists("removido", $_GET) && $_GET["removido"]==="true"){
     <?php
 }
 ?>
-
-
+<h1> Listagem de produtos</h1>
 <table class="table table-striped table-bordered">
 <?php
   $produtos = listaProdutos($conexao);
@@ -21,6 +20,7 @@ if( array_key_exists("removido", $_GET) && $_GET["removido"]==="true"){
       <td> <?=$produto["nome"]?></td>
       <td> <?=$produto["preco"]?></td>
       <td> <?=substr($produto["descricao"], 0, 40) //limitando a exibição dos primeiros 15 caracteres?></td>
+      <td> <?=$produto["categoria_nome"]?></td>
       <td>
         <form action= "remove-produto.php" method="post">
           <input type="hidden" name="id" value="<?=$produto["id"]?>">

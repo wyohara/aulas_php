@@ -7,9 +7,11 @@
   $nome = $_POST["nome"];
   $preco = $_POST["preco"];
   $descricao =  $_POST["descricao"];
+  $categoria_id = $_POST["categoria_id"];
 
-  if (insereProduto($conexao, $nome, $preco, $descricao)){
-  	//aviso de sucesso na query?>
+  if (insereProduto($conexao, $nome, $preco, $descricao, $categoria_id)){
+  	//aviso de sucesso na query
+    ?>
   	<p class="text-success">Produto <?=$nome?> adicionado.Seu valor é <?=$preco?>.</p>
   	<?php
   }else{
