@@ -1,28 +1,28 @@
 <?php include("cabecalho.php");?>
-	<h1>Bem Vindo</h1>
 	<?php
+		//criando a função para inserir o produto
+		function insereProduto($conexao, $nome, $preco){
+			//Criando a query para inserir no banco
+			$query = "INSERT INTO produtos(nome, preco) VALUES ('{$nome}', '{$preco}')";
+			return mysqli_query($conexao, $query); //realizando a query e devolvendo o resultado
+		}
+
 		//recuperando valores do produto-form
 		$nome = $_GET["nome"];
 		$preco = $_GET["preco"];
 
-		//criando a conexao com o banco de dados
-		$conexao = mysqli_connect("localhost","root", "", "Loja");
+		$conexao = mysqli_connect("localhost","root", "", "Loja");//criando a conexao com o banco de dados
 
-		//Criando a query para inserir no banco
-		$query = "INSERT INTO produtos(nome, preco) VALUES ('{$nome}', '{$preco}')";
-
-		$resultado = mysqli_query($conexao, $query); //realizando a query
-
-		if ($resultado){
+		if (insereProduto($conexao, $nome, $preco)){
 			//aviso de sucesso na query?>
-			<p class="alert-success">Produto <?php echo $nome;?> adicionado.Seu valor é <?php echo $preco?>.</p>
+			<p class="text-success">Produto <?=$nome?> adicionado.Seu valor é <?=$preco?>.</p>
 			<?php
 		}else{
+			$erro = mysqli_error($conexao)
 			//aviso de erro na query?>
-			<p class="alert-danger">O Produto  não foi adicionado</p>
+			<p class="text-danger">O Produto  não foi adicionado. Erro <?=$erro?></p>
 			<?php
 		}
-		mysqli_close($conexao);//encerrando a conexao
 	?>
 
 <?php include("rodape.php");?>
