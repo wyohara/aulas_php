@@ -1,5 +1,6 @@
-<?php include("cabecalho.php");?>
-	<?php
+<?php include("cabecalho.php");
+ include("conecta.php");
+
 		//criando a função para inserir o produto
 		function insereProduto($conexao, $nome, $preco){
 			//Criando a query para inserir no banco
@@ -10,8 +11,6 @@
 		//recuperando valores do produto-form
 		$nome = $_GET["nome"];
 		$preco = $_GET["preco"];
-
-		$conexao = mysqli_connect("localhost","root", "", "Loja");//criando a conexao com o banco de dados
 
 		if (insereProduto($conexao, $nome, $preco)){
 			//aviso de sucesso na query?>
