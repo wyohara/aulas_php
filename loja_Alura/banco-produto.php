@@ -3,7 +3,8 @@
 //função para listar os produtos
 function listaProdutos($conexao) {
     $produtos = array();
-    $resultado = mysqli_query($conexao, "select p.*, c.nome as categoria_nome from produtos as p join categorias as c on c.id=p.categoria_id");
+    $resultado = mysqli_query($conexao,
+    "select p.*, c.nome as categoria_nome from produtos as p join categorias as c on c.id=p.categoria_id");
 
     while($produto = mysqli_fetch_assoc($resultado)) {
         array_push($produtos, $produto);
