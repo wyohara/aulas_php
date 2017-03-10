@@ -1,12 +1,29 @@
 <?php
 include("cabecalho.php");
 include("conecta.php");
+include("banco-produto.php");
+//verifica se foi retornado uma mensagem de removido
 
-$resultado = mysqli_query($conexao, "SELECT * FROM produtos"); //buscando todos os produtos
-
-while($produto = mysqli_fetch_assoc($resultado)){// listando os resultados
-  echo $produto["nome"]."</br>";
+if( array_key_exists("removido", $_GET) && $_GET["removido"]==="true"){
+    ?>
+    <p class=" alert-success"> Produto removido</p>
+    <?php
 }
 ?>
 
+
+<table class="table table-striped table-bordered">
+<?php
+  $produtos = listaProdutos($conexao);
+  foreach ($produtos as $produto) :
+    ?>
+    <tr>
+      <td> <?=$produto["nome"]?></td>
+      <td> <?=$produto["preco"]?></td>
+      <td> <a href="remove-produto.php?id=<?=$produto["id"]?>" class="text-danger">remover</a></td>
+    </tr>
+    <?php
+  endforeach;
+?>
+</table>
 <?php include("rodape.php");?>
