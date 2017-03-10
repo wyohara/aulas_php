@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Minha loja</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 		<link href="CSS/bootstrap.css" rel="stylesheet"/>
 		<link href="CSS/loja.css" rel="stylesheet"/>
 </head>

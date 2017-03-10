@@ -1,6 +1,6 @@
 <?php include("cabecalho.php");?>
   <h1>Formulario de produto</h1>
-  <form action="adiciona-produto.php">
+  <form action="adiciona-produto.php" method="post">
     <table class="table">
       <tr>
         <td>Nome: </td>
@@ -9,6 +9,10 @@
       <tr>
         <td>Preco: </td>
         <td><input class="form-control" type="number" name="preco"/></td>
+      </tr>
+      <tr>
+        <td>Descrição:</td>
+        <td><textarea class="form-control" name="descricao"></textarea>
       </tr>
       <tr>
         <td><input class="btn btn-primary" type="submit" name="Cadastrar" value="Cadastrar"></td>
