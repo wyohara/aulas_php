@@ -21,6 +21,7 @@ if( array_key_exists("removido", $_GET) && $_GET["removido"]==="true"){
       <td> <?=$produto["preco"]?></td>
       <td> <?=substr($produto["descricao"], 0, 40) //limitando a exibição dos primeiros 15 caracteres?></td>
       <td> <?=$produto["categoria_nome"]?></td>
+      <td> <a class="btn btn-primary"href="alterar-produto.php?id=<?=$produto["id"]?>"> Alterar</a> </td>
       <td>
         <form action= "remove-produto.php" method="post">
           <input type="hidden" name="id" value="<?=$produto["id"]?>">
