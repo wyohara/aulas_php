@@ -9,7 +9,12 @@
   $descricao =  $_POST["descricao"];
   $categoria_id = $_POST["categoria_id"];
 
-  if (insereProduto($conexao, $nome, $preco, $descricao, $categoria_id)){
+  if(array_key_exists("usado",$_POST)){ //verifica se existe o valor usado no post
+    $usado = "true";
+  }else {
+    $usado= "false";
+  }
+  if (insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)){
   	//aviso de sucesso na query
     ?>
   	<p class="text-success">Produto <?=$nome?> adicionado.Seu valor é <?=$preco?>.</p>
