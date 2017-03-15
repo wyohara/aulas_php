@@ -14,9 +14,14 @@ function listaProdutos($conexao) {
 
 //função para inserir os produtos
 function insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
-    $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values".
-    " ('{$nome}', {$preco}, '{$descricao}', {$categoria_id}, {$usado})";
-    return mysqli_query($conexao, $query);
+  $nome = mysqli_real_escape_string($conexao, $nome);
+  $preco = mysqli_real_escape_string($conexao, $preco);
+  $descricao = mysqli_real_escape_string($conexao, $descricao);
+  $categoria_id = mysqli_real_escape_string($conexao, $categoria_id);
+  $usado = mysqli_real_escape_string($conexao, $usado);
+  $query = "insert into produtos (nome, preco, descricao, categoria_id, usado) values".
+  " ('{$nome}', {$preco}, '{$descricao}', {$categoria_id}, {$usado})";
+  return mysqli_query($conexao, $query);
 }
 
 function removeProduto($conexao, $id){
