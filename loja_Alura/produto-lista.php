@@ -1,8 +1,7 @@
 <?php
-include("cabecalho.php");
-include("conecta.php");
-include("banco-produto.php");
-include("logica-usuario.php");
+require_once("cabecalho.php");
+require_once("banco-produto.php");
+require_once("logica-usuario.php");
 ?>
 <h1> Listagem de produtos</h1>
 <table class="table table-striped table-bordered">
@@ -27,4 +26,4 @@ include("logica-usuario.php");
   endforeach;
 ?>
 </table>
-<?php include("rodape.php");?>
+<?php require_once("rodape.php");?>

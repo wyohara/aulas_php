@@ -1,5 +1,7 @@
 
 <?php
+require_once("conecta.php");
+
 //função para listar os produtos
 function listaProdutos($conexao) {
     $produtos = array();

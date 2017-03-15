@@ -2,7 +2,7 @@
 error_reporting(E_ALL ^ E_NOTICE); // exibe todos os erros menos os do tipos notice
 
 //incluindo cabeçalhos
-include ("mostra-alerta.php");
+require_once ("mostra-alerta.php");
  ?>
 <html>
 <head>

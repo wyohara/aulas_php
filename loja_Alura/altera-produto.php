@@ -1,7 +1,6 @@
 <?php
-  include("cabecalho.php");
-  include("conecta.php");
-  include("banco-produto.php");
+  require_once("cabecalho.php");
+  require_once("banco-produto.php");
 
   //recuperando valores do produto-form
   $nome = $_POST["nome"];
@@ -27,5 +26,5 @@
   	<?php
   }
 
-  include("rodape.php");
+  require_once("rodape.php");
 ?>

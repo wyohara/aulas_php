@@ -1,5 +1,6 @@
 <?php
 
+require_once("conecta.php");
 //listando todas as categorias
 function listaCategorias($conexao){
   $arrayCategorias = array();
