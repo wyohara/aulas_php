@@ -3,6 +3,8 @@
   include("conecta.php");
   include("banco-produto.php");
 
+  verificaUsuario(); //verificando se o cookie do usuario está ativo
+
   //recuperando valores do produto-form
   $nome = $_POST["nome"];
   $preco = $_POST["preco"];
