@@ -6,8 +6,10 @@ $usuario = buscaUsuario($conexao, $_POST["email"], $_POST["senha"]);
 logaUsuario( $usuario["email"]); //setand o cookie do usuario
 
 if($usuario == null){
-  header("Location:index.php?login=0");
+  $_SESSION["danger"] = "Usuario ou senha inválido.";
+  header("Location:index.php");
 }else{
-    header("Location:index.php?login=1");
+  $_SESSION["success"] = "Usuario logado com sucesso.";
+  header("Location:index.php");
 }
 die();

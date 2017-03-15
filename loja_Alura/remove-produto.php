@@ -2,11 +2,12 @@
 include("cabecalho.php");
 include("conecta.php");
 include("banco-produto.php");
+include("logica-usuario.php");
 
 $id = $_POST["id"];
 
 removeProduto($conexao, $id);
-
-header("Location:produto-lista.php?removido=true"); //redireciona para a lista de produtos
+$_SESSION["success"] = "Produto removido com sucesso.";
+header("Location:produto-lista.php"); //redireciona para a lista de produtos
 die(); // mata esta pagina php
 ?>

@@ -2,12 +2,13 @@
 include("cabecalho.php");
 include("conecta.php");
 include("banco-produto.php");
+include("logica-usuario.php");
 //verifica se foi retornado uma mensagem de removido
 
-if( array_key_exists("removido", $_GET) && $_GET["removido"]==="true"){
-    ?>
-    <p class=" alert-success"> Produto removido</p>
-    <?php
+if(isset($_SESSION["success"])){?>
+ <p class="alert-success"> <?= $_SESSION["success"]?></p>
+<?php
+unset($_SESSION["success"]);
 }
 ?>
 <h1> Listagem de produtos</h1>
